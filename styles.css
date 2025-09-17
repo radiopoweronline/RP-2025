@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: #16213e; /* Color sólido similar al degradado */
+    padding-bottom: 100px; /* Space for floating player */
+}
+
+.neon-glow {
+    /* box-shadow eliminado */
+}
+
+.neon-text {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; /* Efecto glow reducido */
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.slide-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-hidden {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.gallery-item {
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    /* box-shadow eliminado */
+}
+
+.track-card {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%);
+    border: 1px solid rgba(0,255,255,0.3);
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+    /* box-shadow eliminado */
+}
+
+.floating-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(15,15,35,0.95) 0%, rgba(26,26,46,0.95) 100%);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid #00ffff;
+    /* box-shadow eliminado */
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #00ffff 0%, #ff00ff 100%);
+    height: 4px;
+    transition: width 0.1s ease;
+}
+
+.control-btn {
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    color: #00ffff;
+}
+
+.album-art {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.playing .album-art {
+    animation-play-state: running;
+}
+
+.paused .album-art {
+    animation-play-state: paused;
+}
+
+/* Iconos de directorios de radio */
+.icon-container {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    flex: 1 1 22%; /* Se adapta al tamaño del contenedor */
+    max-width: 70px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.icon img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.icon img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .icon {
+        flex: 1 1 25%;
+        max-width: 60px;
+        padding: 4px;
+    }
+
+    .icon-container {
+        padding: 10px;
+    }
+}

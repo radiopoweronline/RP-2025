@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Radio Power</title>
+    <meta name="description" content="Escucha Radio Power, tu emisora favorita con la mejor música y programas en vivo.">
+    <meta name="keywords" content="radio, música, programas en vivo, Radio Power">
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-chrome-192x192.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+</head>
+<body class="min-h-screen text-white bg-black">
+    <!-- Header -->
+    <header class="bg-black bg-opacity-50 backdrop-blur-md fixed w-full z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="assets/logo.png" alt="Logo Radio Power" class="w-16 h-8">
+				<span class="text-xl sm:text-2xl font-bold neon-text">Radio Power</span>
+            </div>
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="index.html#home" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Inicio</a>
+                <a href="index.html#music" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">DJs</a>
+                <a href="index.html#gallery" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Galería</a>
+                <a href="index.html#Player" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Player</a>
+                <a href="video.html" class="text-cyan-400 font-semibold text-sm lg:text-base">Video</a>
+            </div>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 backdrop-blur-md">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html#home" class="block py-2 hover:text-cyan-400 transition-colors">Inicio</a>
+                <a href="index.html#music" class="block py-2 hover:text-cyan-400 transition-colors">DJs</a>
+                <a href="index.html#gallery" class="block py-2 hover:text-cyan-400 transition-colors">Galería</a>
+                <a href="index.html#Player" class="block py-2 hover:text-cyan-400 transition-colors">Player</a>
+                <a href="video.html" class="block py-2 text-cyan-400 font-semibold">Video</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="pt-20 pb-8">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-cyan-400">Videos - Hits</h1>
+            <div class="max-w-[600px] mx-auto md:grid md:grid-cols-2 md:gap-5 md:max-w-[920px]">
+                <!-- Video 1: David Guetta & Bebe Rexha - I'm Good (Blue) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/90RLzVUuXe4/hqdefault.jpg');" onclick="openModal('90RLzVUuXe4', 'David Guetta & Bebe Rexha - I\'m Good (Blue)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">David Guetta & Bebe Rexha - I'm Good (Blue)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 2: Limp Bizkit - Nookie (Official Video HD Remastered) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/JTMVOzPPtiw/hqdefault.jpg');" onclick="openModal('JTMVOzPPtiw', 'Limp Bizkit - Nookie (Official Video HD Remastered)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Limp Bizkit - Nookie (Official Video HD Remastered)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 3: The Black Eyed Peas - I Gotta Feeling -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/uSD4vsh1zDA/hqdefault.jpg');" onclick="openModal('uSD4vsh1zDA', 'The Black Eyed Peas - I Gotta Feeling')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">The Black Eyed Peas - I Gotta Feeling</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 4: David Guetta Feat. Kid Cudi - Memories -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/NUVCQXMUVnI/hqdefault.jpg');" onclick="openModal('NUVCQXMUVnI', 'David Guetta Feat. Kid Cudi - Memories')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">David Guetta Feat. Kid Cudi - Memories</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 5: Vengaboys - Up & Down (Lyric Video) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/lyKQffs8TTQ/hqdefault.jpg');" onclick="openModal('lyKQffs8TTQ', 'Vengaboys - Up & Down (Lyric Video)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Vengaboys - Up & Down (Lyric Video)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 6: Bon Jovi - It's My Life (Official Music Video) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/vx2u5uUu3DE/hqdefault.jpg');" onclick="openModal('vx2u5uUu3DE', 'Bon Jovi - It\'s My Life (Official Music Video)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Bon Jovi - It's My Life (Official Music Video)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 7: Coldplay - Viva La Vida -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/d020hcWA_Wg/hqdefault.jpg');" onclick="openModal('d020hcWA_Wg', 'Coldplay - Viva La Vida')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Coldplay - Viva La Vida</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 8: Blink-182 – Stay Together For The Kids -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/k1BFHYtZlAU/hqdefault.jpg');" onclick="openModal('k1BFHYtZlAU', 'Blink-182 – Stay Together For The Kids')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Blink-182 – Stay Together For The Kids</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 9: Rammstein – Du Hast (Official 4K Video) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/W3q8Od5qJio/hqdefault.jpg');" onclick="openModal('W3q8Od5qJio', 'Rammstein – Du Hast (Official 4K Video)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Rammstein – Du Hast (Official 4K Video)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+                <!-- Video 10: Blur – Song 2 (Official Music Video) -->
+                <div class="relative w-full pt-[56.25%] bg-cover bg-center cursor-pointer mb-5 md:mb-0 rounded-lg overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)]" style="background-image: url('https://img.youtube.com/vi/SSbBvKaM6sk/hqdefault.jpg');" onclick="openModal('SSbBvKaM6sk', 'Blur – Song 2 (Official Music Video)')">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-3xl font-bold text-center max-w-[80%] p-2.5 z-10 [text-shadow:_2px_2px_4px_black]">Blur – Song 2 (Official Music Video)</div>
+                    <div class="absolute bottom-2.5 left-2.5 text-white bg-black bg-opacity-70 px-2.5 py-1.5 text-sm font-bold rounded z-10">VIDEO - HITS</div>
+                </div>
+            </div>
+            <!-- El modal -->
+            <div id="videoModal" class="hidden fixed inset-0 z-[1000] w-full h-full overflow-auto bg-black bg-opacity-90 flex justify-center items-center">
+                <span class="absolute top-4 right-9 text-white text-4xl font-bold cursor-pointer z-[1001] hover:text-gray-400" onclick="closeModal()">&times;</span>
+                <div id="videoModalContent" class="relative mx-auto block w-[80%] max-w-[700px]">
+                    <iframe class="w-full h-[400px] md:h-[400px] sm:h-[250px]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center bg-transparent">
+        <p class="m-0">&copy; <span id="year"></span> Radio Power</p>
+        <a href="https://www.tiktok.com/@radio.power" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="inline-block mt-2.5">
+            <svg viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" style="color:#ECFF00;">
+                <path fill="currentColor" d="M168 24a8 8 0 0 1 8 8c0 24.5 20.5 45 45 45a8 8 0 0 1 8 8v19a8 8 0 0 1-8 8c-17.5 0-34.3-5.5-48.1-15.7v45.6c0 38.1-31 69.1-69.1 69.1S35.6 180 35.6 141.9s31-69.1 69.1-69.1c6.3 0 12.4.8 18.2 2.4a8 8 0 0 1 5.8 7.7V114a8 8 0 0 1-11.6 7.1 29.4 29.4 0 0 0-12.4-2.8c-16.7 0-30.3 13.6-30.3 30.3s13.6 30.3 30.3 30.3 30.3-13.6 30.3-30.3V32a8 8 0 0 1 8-8h24z"/>
+            </svg>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Video modal functions
+        function openModal(videoId, videoTitle) {
+            const modal = document.getElementById('videoModal');
+            const content = document.getElementById('videoModalContent');
+            content.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="${videoTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-[400px] md:h-[400px] sm:h-[250px]"></iframe>`;
+            modal.style.display = 'flex';
+        }
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const content = document.getElementById('videoModalContent');
+            content.innerHTML = '';
+            modal.style.display = 'none';
+        }
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Block right-click on images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') e.preventDefault();
+        });
+    </script>
+</body>
+</html>
