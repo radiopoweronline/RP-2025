@@ -1,29 +1,37 @@
-# Regla específica para imágenes en la raíz
-/*.jpg
+# Regla para imágenes en cualquier ubicación (raíz o subcarpetas)
+*.jpg
   Cache-Control: public, max-age=0, must-revalidate
-/*.png
+*.png
   Cache-Control: public, max-age=0, must-revalidate
-/*.gif
+*.gif
   Cache-Control: public, max-age=0, must-revalidate
-/*.webp
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Regla específica para imágenes en /activos/
-/activos/*.jpg
-  Cache-Control: public, max-age=0, must-revalidate
-/activos/*.png
-  Cache-Control: public, max-age=0, must-revalidate
-/activos/*.gif
-  Cache-Control: public, max-age=0, must-revalidate
-/activos/*.webp
+*.webp
   Cache-Control: public, max-age=0, must-revalidate
 
-# Regla para otros recursos estáticos en /activos/ (caché a largo plazo)
+# Regla para archivos HTML, texto y JSON
+*.html
+  Cache-Control: public, max-age=0, must-revalidate
+*.txt
+  Cache-Control: public, max-age=0, must-revalidate
+*.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Regla para JS y CSS en /activos/
 /activos/*.js
-  Cache-Control: public, max-age=0, debe revalidarse
+  Cache-Control: public, max-age=0, must-revalidate
 /activos/*.css
-  Cache-Control: public, max-age=0, debe revalidarse
+  Cache-Control: public, max-age=0, must-revalidate
 
-# Regla general para otros recursos en la raíz (opcional, según necesidades)
+# Regla para fuentes y SVGs
+*.woff
+  Cache-Control: public, max-age=0, must-revalidate
+*.woff2
+  Cache-Control: public, max-age=0, must-revalidate
+*.ttf
+  Cache-Control: public, max-age=0, must-revalidate
+*.svg
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Regla general para otros recursos no especificados
 /*
   Cache-Control: public, max-age=0, must-revalidate
