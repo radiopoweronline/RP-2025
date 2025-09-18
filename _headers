@@ -1,37 +1,40 @@
-# Regla para imágenes en cualquier ubicación (raíz o subcarpetas)
-*.jpg
-  Cache-Control: public, max-age=0, must-revalidate
-*.png
-  Cache-Control: public, max-age=0, must-revalidate
-*.gif
-  Cache-Control: public, max-age=0, must-revalidate
-*.webp
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Regla para archivos HTML, texto y JSON
+# HTML y datos dinámicos (siempre frescos)
 *.html
-  Cache-Control: public, max-age=0, must-revalidate
-*.txt
   Cache-Control: public, max-age=0, must-revalidate
 *.json
   Cache-Control: public, max-age=0, must-revalidate
-
-# Regla para JS y CSS en /activos/
-/activos/*.js
-  Cache-Control: public, max-age=0, must-revalidate
-/activos/*.css
+*.txt
   Cache-Control: public, max-age=0, must-revalidate
 
-# Regla para fuentes y SVGs
-*.woff
-  Cache-Control: public, max-age=0, must-revalidate
-*.woff2
-  Cache-Control: public, max-age=0, must-revalidate
-*.ttf
-  Cache-Control: public, max-age=0, must-revalidate
+# Imágenes (se actualizan con frecuencia → caché corto)
+*.jpg
+  Cache-Control: public, max-age=3600, must-revalidate
+*.jpeg
+  Cache-Control: public, max-age=3600, must-revalidate
+*.png
+  Cache-Control: public, max-age=3600, must-revalidate
+*.gif
+  Cache-Control: public, max-age=3600, must-revalidate
+*.webp
+  Cache-Control: public, max-age=3600, must-revalidate
 *.svg
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# CSS y JS (caché moderado, se actualizan a menudo)
+*.css
+  Cache-Control: public, max-age=86400, must-revalidate
+*.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Fuentes (rara vez cambian, caché largo)
+*.woff
+  Cache-Control: public, max-age=31536000, immutable
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+*.ttf
+  Cache-Control: public, max-age=31536000, immutable
 
 # Regla general para otros recursos no especificados
 /*
   Cache-Control: public, max-age=0, must-revalidate
+
