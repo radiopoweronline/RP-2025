@@ -1,5 +1,29 @@
-/*
+# Regla específica para imágenes en la raíz
+/*.jpg
+  Cache-Control: public, max-age=0, must-revalidate
+/*.png
+  Cache-Control: public, max-age=0, must-revalidate
+/*.gif
+  Cache-Control: public, max-age=0, must-revalidate
+/*.webp
   Cache-Control: public, max-age=0, must-revalidate
 
-/activos/*
+# Regla específica para imágenes en /activos/
+/activos/*.jpg
+  Cache-Control: public, max-age=0, must-revalidate
+/activos/*.png
+  Cache-Control: public, max-age=0, must-revalidate
+/activos/*.gif
+  Cache-Control: public, max-age=0, must-revalidate
+/activos/*.webp
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Regla para otros recursos estáticos en /activos/ (caché a largo plazo)
+/activos/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/activos/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Regla general para otros recursos en la raíz (opcional, según necesidades)
+/*
   Cache-Control: public, max-age=0, must-revalidate
