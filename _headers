@@ -1,142 +1,54 @@
 # HTML y datos dinámicos (siempre frescos)
 *.html
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 *.json
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 *.txt
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # Streams y archivos de audio (se actualizan al instante)
 *.mp3
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.ogg
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.aac
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.m3u8
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.ts
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-# Imágenes (covers, banners, galerías → se actualizan a diario)
+# Imágenes (covers, banners, galerías → cambian varias veces al día)
 *.jpg
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.jpeg
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.png
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.gif
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.webp
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.svg
   Cache-Control: public, max-age=3600, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # CSS y JS (se actualizan a diario)
 *.css
   Cache-Control: public, max-age=86400, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.js
   Cache-Control: public, max-age=86400, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # Fuentes (rara vez cambian → 1 año + immutable)
 *.woff
   Cache-Control: public, max-age=31536000, immutable
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.woff2
   Cache-Control: public, max-age=31536000, immutable
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
 *.ttf
   Cache-Control: public, max-age=31536000, immutable
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-# Regla general para otros recursos no especificados
+# Regla general + seguridad
 /*
   Cache-Control: public, max-age=0, must-revalidate
   X-Frame-Options: SAMEORIGIN
