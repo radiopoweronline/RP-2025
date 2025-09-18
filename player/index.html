@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RadioPlayer</title>
+
+    <link rel="icon" type="image/png" href="img/cover.png" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css?v2322">
+</head>
+
+<body>
+    <div class="cover-site">
+        <div id="bgCover"></div>
+        <div class="bg-mask"></div>
+    </div>
+    
+    <main>
+        <section id="player">
+            <div class="container">
+                <!-- Spotify-style Player Interface -->
+                <div class="player-interface">
+                    <!-- Left Side: Artwork -->
+                    <div class="player-left">
+                        <div class="main-artwork">
+                            <div id="currentCoverArt" class="loading-artwork-main">
+                                <div class="artwork-loading-spinner"></div>
+                            </div>
+                            <div class="watermark"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Song Info and Controls -->
+                    <div class="player-right">
+                        <!-- Song Information -->
+                        <div class="song-info">
+                            <h2 id="currentSong" class="current-song">
+                                <span class="song-skeleton">Loading...</span>
+                            </h2>
+                            <h3 id="currentArtist" class="current-artist">
+                                <span class="artist-skeleton">Loading artist...</span>
+                            </h3>
+                        </div>
+                        
+                        <!-- Player Controls -->
+                        <div class="player-controls">
+                            <button class="btn-play" onclick="togglePlay()">
+                                <i id="playerButton" class="fa fa-play"></i>
+                                <span id="buttonPlay">PLAY</span>
+                                <div class="btn-loading-spinner"></div>
+                            </button>
+                            
+                            <div class="volume-control">
+                                <div class="volume-icon">
+                                    <i class="fa fa-volume-up"></i>
+                                </div>
+                                <div class="volume-slide">
+                                    <input type="range" id="volume" step="1" min="0" max="100" value="80">
+                                </div>
+                                <div class="volume-indicator">
+                                    <span id="volIndicator">80</span>%
+                                </div>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button class="btn-secondary" data-toggle="modal" data-target="#modalHistory">
+                                    <i class="fa fa-history"></i>
+                                    HISTORY
+                                </button>
+                                <a href="#" class="btn-secondary lyrics" data-target="#modalLyrics">
+                                    <i class="fa fa-file-text-o"></i>
+                                    LYRICS
+                                    <div class="lyrics-loading-dot"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Lyrics Modal -->
+    <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lyricsSong">Lyrics</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="lyric">
+                    <div class="lyrics-loading">
+                        <div class="lyrics-skeleton-line"></div>
+                        <div class="lyrics-skeleton-line"></div>
+                        <div class="lyrics-skeleton-line short"></div>
+                        <div class="lyrics-skeleton-line"></div>
+                        <div class="lyrics-skeleton-line short"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- History Modal -->
+    <div class="modal fade" id="modalHistory" tabindex="-1" role="dialog" aria-labelledby="historyTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historyTitle">Recently Played</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="history-list" id="historicSong">
+                        <!-- History items will be generated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js?3892920001992"></script>
+    
+</body>
+
+</html>
