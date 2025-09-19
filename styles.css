@@ -34,12 +34,12 @@ body {
 }
 
 .gallery-item {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.1);
-    /* box-shadow eliminado */
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .track-card {
@@ -138,6 +138,30 @@ body {
     transform: scale(1.1);
 }
 
+/* Estilos para el modal de la galería */
+#modal .bg-gray-800 {
+    padding: 16px; /* Reducido de 24px para un modal más compacto */
+}
+
+#modal h3 {
+    margin-top: 8px; /* Reducido de 16px */
+    margin-bottom: 4px; /* Reducido de 16px */
+}
+
+#modal p {
+    margin-bottom: 8px; /* Reducido de 24px */
+}
+
+#modal button {
+    margin-top: 0; /* Asegurar que no haya margen superior adicional */
+    background-color: #3b82f6; /* Cambiado de bg-pink-500 a bg-blue-500 */
+}
+
+#modal button:hover {
+    background-color: #2563eb; /* Cambiado de hover:bg-pink-600 a hover:bg-blue-600 */
+}
+
+/* Media queries */
 @media (max-width: 480px) {
     .icon {
         flex: 1 1 25%;
