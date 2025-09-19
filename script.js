@@ -148,3 +148,51 @@ radioStream.addEventListener('waiting', () => {
     document.getElementById('radio-status').textContent = 'Buffering...';
     document.getElementById('radio-info').textContent = 'Esperando datos del streaming';
 });
+
+// Gallery Section
+function openModal(title, description, imageSrc = null) {
+    const modal = document.getElementById('modal');
+    const modalContent = modal.querySelector('.bg-gray-800');
+    
+    if (imageSrc) {
+        // Mostrar imagen con botón "Cerrar" debajo del subtítulo
+        modalContent.innerHTML = `
+            <div class="text-center">
+                <img src="${imageSrc}" alt="${title}" class="w-full max-w-lg mx-auto rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-6xl mb-4" style="display: none;">📸</div>
+                <h3 class="text-2xl font-bold mt-4 mb-4">${title}</h3>
+                <p class="text-gray-400 mb-6">${description}</p>
+                <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
+                    Cerrar
+                </button>
+            </div>
+        `;
+    } else {
+        // Mostrar modal sin imagen
+        modalContent.innerHTML = `
+            <div class="text-center">
+                <div class="text-6xl mb-4">📸</div>
+                <h3 class="text-2xl font-bold mb-4">${title}</h3>
+                <p class="text-gray-400 mb-6">${description}</p>
+                <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
+                    Cerrar
+                </button>
+            </div>
+        `;
+    }
+    
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.add('hidden');
+}
+
+// Cerrar modal al hacer clic fuera
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+});
