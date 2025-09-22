@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     volumeControl.addEventListener('input', (e) => {
         const volume = e.target.value / 100;
         radioStream.volume = volume;
+        radioStream.muted = false; // Asegurar que no esté silenciado al ajustar manualmente
         console.log('Volumen ajustado a:', volume); // Para depuración
     });
 
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         radioStream.src = 'https://stream.zeno.fm/dlvtl3hthyxvv';
         radioStream.load();
+        radioStream.muted = true; // Iniciar silenciado para sortear restricciones de autoplay
 
         const onCanPlay = () => {
             isRadioPlaying = true;
@@ -109,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('radio-pause-icon').classList.remove('hidden');
             radioStatus.textContent = 'Reproduciendo en vivo';
             radioInfo.textContent = 'Radio Power - Música en vivo 24/7';
+            radioStream.muted = false; // Restaurar volumen tras iniciar
+            volumeControl.value = 70; // Restaurar valor del control
+            radioStream.volume = volumeControl.value / 100;
             radioStream.removeEventListener('canplay', onCanPlay);
         };
 
@@ -116,8 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         radioStream.play().catch((error) => {
             console.error('Error al reproducir:', error);
-            radioStatus.textContent = 'Error de conexión';
-            radioInfo.textContent = 'Intenta de nuevo en unos momentos';
+            radioStatus.textContent = 'Haz clic en Play para escuchar';
+            radioInfo.textContent = 'Interacción requerida para iniciar';
+            radioStream.muted = false;
+            volumeControl.value = 70;
+            radioStream.volume = volumeControl.value / 100;
             radioStream.removeEventListener('canplay', onCanPlay);
         });
     }
@@ -160,6 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
         radioInfo.textContent = 'No se pudo cargar el audio';
     });
 
+    // Autoplay with delay to ensure DOM is ready
+    setTimeout(() => {
+        showRadioPlayer();
+        startRadio();
+    }, 100);
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -187,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (imageSrc) {
                 modalContent.innerHTML = `
                     <div class="text-center">
-                        <img src="${imageSrc}" alt="${title}" class="w-full max-w-lg mx-auto rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="${imageSrc}" alt="${title}" class="w-full max-w-lg mx-auto rounded-2xl" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="text-6xl mb-4" style="display: none;">📸</div>
                         <h3 class="text-2xl font-bold mt-4 mb-4">${title}</h3>
                         <p class="text-gray-400 mb-6">${description}</p>
