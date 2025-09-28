@@ -201,69 +201,99 @@
     </div>
 </section>
 
-
 <!-- Sección de Galería -->
 <section id="gallery" class="py-16">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Galeria de eventos</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Galería de eventos</h2>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" onclick="openModal('DJs en vivo', 'Sesiones electrizantes de Radio Power', 'assets/galeria/galeria1.jpg')">
-                <img src="https://i.postimg.cc/59mPWsjP/galeria1.jpg" alt="DJs en vivo" class="w-full h-full object-cover transition-transform group-hover:scale-110" loading="lazy" onerror="this.src=''; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            
+            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" 
+                 onclick="openModal(this, 'DJs en vivo', 'Sesiones electrizantes de Radio Power')">
+                <img src="https://i.postimg.cc/59mPWsjP/galeria1.jpg" 
+                     alt="DJs en vivo" 
+                     class="w-full h-full object-cover transition-transform group-hover:scale-110" 
+                     loading="lazy" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
                 <div class="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-center" style="display: none;">
-                    
+                    <p class="text-white font-semibold p-4">Imagen no disponible</p>
                 </div>
+                
                 <div class="absolute inset-0 bg-black/40 opacity-100 group-hover:opacity-100 transition-opacity flex items-end">
                     <p class="text-white font-semibold p-4">DJs en Vivo</p>
                 </div>
             </div>
 
-            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" onclick="openModal('Eventos recientes', 'Lo último en eventos de Radio Power', 'assets/galeria/galeria2.jpg')">
-                <img src="https://i.postimg.cc/YqqdrQmR/galeria2.jpg" alt="Eventos recientes" class="w-full h-full object-cover transition-transform group-hover:scale-110" loading="lazy" onerror="this.src=''; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" 
+                 onclick="openModal(this, 'Eventos recientes', 'Lo último en eventos de Radio Power')">
+                <img src="https://i.postimg.cc/YqqdrQmR/galeria2.jpg" 
+                     alt="Eventos recientes" 
+                     class="w-full h-full object-cover transition-transform group-hover:scale-110" 
+                     loading="lazy" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
                 <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-center" style="display: none;">
-
+                    <p class="text-white font-semibold p-4">Imagen no disponible</p>
                 </div>
+                
                 <div class="absolute inset-0 bg-black/40 opacity-100 group-hover:opacity-100 transition-opacity flex items-end">
                     <p class="text-white font-semibold p-4">Eventos Recientes</p>
                 </div>
             </div>
-        
-            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" onclick="openModal('Artistas invitados', 'Estrellas en nuestras sesiones', 'assets/galeria/galeria3.jpg')">
-                <img src="https://i.postimg.cc/sDDTj5Zw/galeria3.jpg" alt="Artistas invitados" class="w-full h-full object-cover transition-transform group-hover:scale-110" loading="lazy" onerror="this.src=''; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            
+            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" 
+                 onclick="openModal(this, 'Artistas invitados', 'Estrellas en nuestras sesiones')">
+                <img src="https://i.postimg.cc/sDDTj5Zw/galeria3.jpg" 
+                     alt="Artistas invitados" 
+                     class="w-full h-full object-cover transition-transform group-hover:scale-110" 
+                     loading="lazy" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
                 <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-center" style="display: none;">
-
+                    <p class="text-white font-semibold p-4">Imagen no disponible</p>
                 </div>
+                
                 <div class="absolute inset-0 bg-black/40 opacity-100 group-hover:opacity-100 transition-opacity flex items-end">
                     <p class="text-white font-semibold p-4">Artistas Invitados</p>
                 </div>
             </div>
-         
-            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" onclick="openModal('Fiestas épicas', 'Celebraciones inolvidables con Radio Power', 'assets/galeria/galeria4.jpg')">
-                <img src="https://i.postimg.cc/bNNmy12T/galeria4.jpg" alt="Fiestas épicas" class="w-full h-full object-cover transition-transform group-hover:scale-110" loading="lazy" onerror="this.src=''; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            
+            <div class="gallery-item aspect-square rounded-2xl overflow-hidden cursor-pointer relative group" 
+                 onclick="openModal(this, 'Fiestas épicas', 'Celebraciones inolvidables con Radio Power')">
+                <img src="https://i.postimg.cc/bNNmy12T/galeria4.jpg" 
+                     alt="Fiestas épicas" 
+                     class="w-full h-full object-cover transition-transform group-hover:scale-110" 
+                     loading="lazy" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
                 <div class="absolute inset-0 bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-center" style="display: none;">
-
+                    <p class="text-white font-semibold p-4">Imagen no disponible</p>
                 </div>
+                
                 <div class="absolute inset-0 bg-black/40 opacity-100 group-hover:opacity-100 transition-opacity flex items-end">
                     <p class="text-white font-semibold p-4">Fiestas Épicas</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-3xl max-w-md w-full p-4 glow">
-            <div class="text-center">
-                <div class="text-6xl mb-4" id="modalIcon">📸</div>
-                <h3 class="text-2xl font-bold mb-4" id="modalTitle">Título</h3>
-                <p class="text-gray-400 mb-6" id="modalDescription">Descripción</p>
-                <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
-                    Cerrar
-                </button>
-            </div>
+<div id="modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-gray-800 rounded-3xl max-w-lg w-full p-4 glow">
+        <div class="text-center">
+            <img id="modalImage" src="" alt="Imagen en grande" class="rounded-xl mb-4 w-full object-cover max-h-96 mx-auto">
+            
+            <h3 class="text-2xl font-bold mb-4 text-cyan-400" id="modalTitle">Título</h3>
+            <p class="text-gray-400 mb-6" id="modalDescription">Descripción</p>
+
+            <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
+                Cerrar
+            </button>
         </div>
     </div>
+</div>
 
     <script src="gallery.js"></script>
 
