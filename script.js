@@ -178,51 +178,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Gallery Section
-    window.openModal = function (title, description, imageSrc = null) {
-        const modal = document.getElementById('modal');
-        const modalContent = modal.querySelector('.bg-gray-800');
+    // =================================================================
+    // 🚨 NUEVA FUNCIÓN DEL MODAL CORREGIDA 🚨
+    // La función ahora espera el elemento completo (element) en lugar de la URL de la imagen.
+    // Esto coincide con el HTML optimizado: onclick="openModal(this, 'Título', 'Descripción')"
+    // =================================================================
 
-        if (modal && modalContent) {
-            if (imageSrc) {
-                modalContent.innerHTML = `
-                    <div class="text-center">
-                        <img src="${imageSrc}" alt="${title}" class="w-full max-w-lg mx-auto rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="text-6xl mb-4" style="display: none;">📸</div>
-                        <h3 class="text-2xl font-bold mt-4 mb-4">${title}</h3>
-                        <p class="text-gray-400 mb-6">${description}</p>
-                        <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
-                            Cerrar
-                        </button>
-                    </div>
-                `;
-            } else {
-                modalContent.innerHTML = `
-                    <div class="text-center">
-                        <div class="text-6xl mb-4">📸</div>
-                        <h3 class="text-2xl font-bold mb-4">${title}</h3>
-                        <p class="text-gray-400 mb-6">${description}</p>
-                        <button onclick="closeModal()" class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full transition-all">
-                            Cerrar
-                        </button>
-                    </div>
-                `;
-            }
-            modal.classList.remove('hidden');
+    /**
+     * Abre el modal de la galería.
+     * @param {HTMLElement} element El elemento de la galería (div.gallery-item) que fue clickeado.
+     * @param {string} title Título del modal.
+     * @param {string} description Descripción del modal.
+     */
+    window.openModal = function (element, title, description) {
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+
+        if (!modal || !modalTitle || !modalDescription || !modalImage || !element) {
+             console.error('Faltan elementos del modal o del elemento clickeado');
+             return;
         }
+
+        // Obtener la URL de la imagen directamente del <img> dentro del elemento clickeado
+        const imageUrl = element.querySelector('img').src; 
+
+        // Asignar contenido
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalImage.src = imageUrl;
+        modalImage.alt = title; 
+
+        // Mostrar el modal
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        // Deshabilitar el scroll del cuerpo de la página
+        document.body.style.overflow = 'hidden';
     };
 
+    /**
+     * Cierra el modal de la galería.
+     */
     window.closeModal = function () {
         const modal = document.getElementById('modal');
         if (modal) {
             modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            // Restaurar el scroll del cuerpo de la página
+            document.body.style.overflow = ''; 
         }
     };
-
-    // Cerrar modal al hacer clic fuera
+    
+    // Cerrar modal al hacer clic fuera (overlay)
     const modal = document.getElementById('modal');
     if (modal) {
         modal.addEventListener('click', function (e) {
+            // Comprueba si el clic fue directamente sobre el fondo del modal (el elemento 'modal' mismo)
             if (e.target === this) {
                 closeModal();
             }
