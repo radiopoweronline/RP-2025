@@ -11,57 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Elementos de menú móvil no encontrados');
     }
 
-    // Image slider functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('#slider > div');
-    const totalSlides = slides.length;
-    const slider = document.getElementById('slider');
-    const dots = document.querySelectorAll('.slider-dot');
-
-    function updateSlider() {
-        if (slider) {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.remove('bg-gray-400');
-                    dot.classList.add('bg-cyan-400');
-                } else {
-                    dot.classList.remove('bg-cyan-400');
-                    dot.classList.add('bg-gray-400');
-                }
-            });
-        }
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-    }
-
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-
-    if (nextBtn && prevBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-    } else {
-        console.error('Botones de slider no encontrados');
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentSlide = index;
-            updateSlider();
-        });
-    });
-
-    // Auto-slide every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Slider functionality (manejado en index.html)
 
     // Radio Player Functionality
     let isRadioPlaying = false;
@@ -84,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     volumeControl.addEventListener('input', (e) => {
         const volume = e.target.value / 100;
         radioStream.volume = volume;
-        console.log('Volumen ajustado a:', volume); // Para depuración
+        console.log('Volumen ajustado a:', volume);
     });
 
     function showRadioPlayer() {
@@ -178,18 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // =================================================================
-    // 🚨 NUEVA FUNCIÓN DEL MODAL CORREGIDA 🚨
-    // La función ahora espera el elemento completo (element) en lugar de la URL de la imagen.
-    // Esto coincide con el HTML optimizado: onclick="openModal(this, 'Título', 'Descripción')"
-    // =================================================================
-
-    /**
-     * Abre el modal de la galería.
-     * @param {HTMLElement} element El elemento de la galería (div.gallery-item) que fue clickeado.
-     * @param {string} title Título del modal.
-     * @param {string} description Descripción del modal.
-     */
+    // Modal functionality
     window.openModal = function (element, title, description) {
         const modal = document.getElementById('modal');
         const modalTitle = document.getElementById('modalTitle');
@@ -197,46 +136,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalImage = document.getElementById('modalImage');
 
         if (!modal || !modalTitle || !modalDescription || !modalImage || !element) {
-             console.error('Faltan elementos del modal o del elemento clickeado');
-             return;
+            console.error('Faltan elementos del modal o del elemento clickeado');
+            return;
         }
 
-        // Obtener la URL de la imagen directamente del <img> dentro del elemento clickeado
-        const imageUrl = element.querySelector('img').src; 
-
-        // Asignar contenido
+        const imageUrl = element.querySelector('img').src;
         modalTitle.textContent = title;
         modalDescription.textContent = description;
         modalImage.src = imageUrl;
-        modalImage.alt = title; 
-
-        // Mostrar el modal
+        modalImage.alt = title;
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        
-        // Deshabilitar el scroll del cuerpo de la página
         document.body.style.overflow = 'hidden';
     };
 
-    /**
-     * Cierra el modal de la galería.
-     */
     window.closeModal = function () {
         const modal = document.getElementById('modal');
         if (modal) {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            
-            // Restaurar el scroll del cuerpo de la página
-            document.body.style.overflow = ''; 
+            document.body.style.overflow = '';
         }
     };
-    
-    // Cerrar modal al hacer clic fuera (overlay)
+
     const modal = document.getElementById('modal');
     if (modal) {
         modal.addEventListener('click', function (e) {
-            // Comprueba si el clic fue directamente sobre el fondo del modal (el elemento 'modal' mismo)
             if (e.target === this) {
                 closeModal();
             }
