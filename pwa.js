@@ -1,4 +1,4 @@
-// pwa.js - Compatible con Chrome y Firefox
+// pwa.js - Detecta si ya está instalado
 console.log('PWA cargando...');
 
 class PWAInstallManager {
@@ -9,25 +9,64 @@ class PWAInstallManager {
     }
 
     init() {
+        // 🔥 PRIMERO verificar si ya está instalado
+        if (this.isAlreadyInstalled()) {
+            console.log('✅ PWA ya está instalado, no mostrar banner');
+            return;
+        }
+
         this.bindEvents();
         
-        // En Firefox, mostrar banner siempre después de 10 segundos
         if (this.isFirefox) {
             setTimeout(() => this.showPopup(), 10000);
         } else {
-            // En otros navegadores, esperar el evento beforeinstallprompt
             setTimeout(() => {
                 if (!this.deferredPrompt) this.showPopup();
             }, 10000);
         }
     }
 
+    // 🔥 NUEVO: Detectar si ya está instalado
+    isAlreadyInstalled() {
+        // Método 1: display-mode standalone
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            console.log('📱 Detectado: PWA en modo standalone');
+            return true;
+        }
+        
+        // Método 2: navigator.standalone (iOS)
+        if (window.navigator.standalone) {
+            console.log('📱 Detectado: PWA en iOS standalone');
+            return true;
+        }
+        
+        // Método 3: localStorage flag
+        if (localStorage.getItem('pwa_installed') === 'true') {
+            console.log('📱 Detectado: PWA marcado como instalado');
+            return true;
+        }
+        
+        return false;
+    }
+
+    // 🔥 NUEVO: Marcar como instalado
+    setAsInstalled() {
+        localStorage.setItem('pwa_installed', 'true');
+        console.log('✅ PWA marcado como instalado');
+    }
+
     bindEvents() {
-        // Evento para Chrome, Edge, etc.
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             this.deferredPrompt = e;
             this.showPopup();
+        });
+
+        // 🔥 NUEVO: Detectar cuando se instala
+        window.addEventListener('appinstalled', () => {
+            console.log('🎉 PWA instalado exitosamente');
+            this.setAsInstalled();
+            this.hidePopup();
         });
 
         document.addEventListener('click', (e) => {
@@ -37,9 +76,14 @@ class PWAInstallManager {
     }
 
     showPopup() {
+        // 🔥 VERIFICAR de nuevo antes de mostrar
+        if (this.isAlreadyInstalled()) {
+            console.log('❌ PWA ya instalado, cancelando banner');
+            return;
+        }
+
         const popup = document.getElementById('pwa-install-popup');
         if (popup) {
-            // En Firefox, cambiar el mensaje
             if (this.isFirefox) {
                 this.updateFirefoxMessage();
             }
@@ -63,14 +107,12 @@ class PWAInstallManager {
     }
 
     async installPWA() {
-        // En Firefox, mostrar instrucciones
         if (this.isFirefox) {
             this.showFirefoxInstructions();
             this.hidePopup();
             return;
         }
 
-        // En otros navegadores, instalación normal
         if (!this.deferredPrompt) {
             alert('Tu navegador no soporta instalación directa. Usa el menú de tu navegador.');
             return;
@@ -80,7 +122,11 @@ class PWAInstallManager {
             this.deferredPrompt.prompt();
             const { outcome } = await this.deferredPrompt.userChoice;
             this.deferredPrompt = null;
-            if (outcome === 'accepted') this.hidePopup();
+            
+            if (outcome === 'accepted') {
+                this.setAsInstalled(); // 🔥 Marcar como instalado
+                this.hidePopup();
+            }
         } catch (error) {
             console.error('Error instalación:', error);
         }
