@@ -1,6 +1,6 @@
 {
     "name": "Radio Power",
-    "short_name": "Radio Power",
+    "short_name": "Radio_Power",
     "icons": [
         {
             "src": "/assets/icons/android-chrome-192x192.png",
@@ -16,4 +16,5 @@
     "theme_color": "#00ffff",
     "background_color": "#000000",
     "display": "standalone"
+
 }
