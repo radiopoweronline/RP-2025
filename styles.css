@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: #16213e;
+    padding-bottom: 100px;
+}
+
+.neon-glow {
+    /* box-shadow eliminado */
+}
+
+.neon-text {
+    color: #00ff00;
+    /* text-shadow eliminado */
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.slide-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-hidden {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.gallery-item {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.track-card {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%);
+    border: 1px solid rgba(0,255,255,0.3);
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+}
+
+.floating-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(15,15,35,0.95) 0%, rgba(26,26,46,0.95) 100%);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid #00ff00; /* Cambiado a #00ff00 */
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #00ff00 0%, #00cc00 100%); /* Cambiado a verde */
+    height: 4px;
+    transition: width 0.1s ease;
+}
+
+.control-btn {
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    color: #00ff00; /* Cambiado a #00ff00 */
+}
+
+.album-art {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%); /* Cambiado a verde */
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.playing .album-art {
+    animation-play-state: running;
+}
+
+.paused .album-art {
+    animation-play-state: paused;
+}
+
+/* Iconos de directorios de radio */
+.icon-container {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    flex: 1 1 22%;
+    max-width: 70px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.icon img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.icon img:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el modal de la galería */
+#modal .bg-gray-800 {
+    padding: 16px;
+}
+
+#modal h3 {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    color: #00ff00; /* Cambiado a #00ff00 */
+}
+
+#modal p {
+    margin-bottom: 8px;
+}
+
+#modal button {
+    margin-top: 0;
+    background-color: #00aa00; /* Cambiado a verde más oscuro */
+}
+
+#modal button:hover {
+    background-color: #00cc00; /* Cambiado a verde */
+}
+
+/* Placeholders para evitar layout shift */
+.slider-placeholder, .djs-placeholder, .gallery-placeholder {
+    background: linear-gradient(90deg, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Optimización de imágenes */
+img {
+    content-visibility: auto;
+}
+
+/* Media queries */
+@media (max-width: 480px) {
+    .icon {
+        flex: 1 1 25%;
+        max-width: 60px;
+        padding: 4px;
+    }
+
+    .icon-container {
+        padding: 10px;
+    }
+}
+
+/* Scroll suave nativo */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-item,
+    .track-card,
+    .icon img,
+    .album-art,
+    .pulse-animation {
+        transition: none;
+        animation: none;
+    }
+    
+    .gallery-item:hover,
+    .track-card:hover,
+    .icon img:hover {
+        transform: none;
+    }
+}
+
+/* Efecto de desvanecimiento para el slider */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.slider-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
+
+/* Elimina las clases de slide anteriores si existen */
+.slide-active,
+.slide-hidden {
+    display: none;
+}
