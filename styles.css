@@ -179,18 +179,30 @@ body::before {
     background: rgba(0, 255, 255, 0.08);
     border: 1px solid rgba(0, 255, 255, 0.15);
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: all 0.2s ease;
     backdrop-filter: blur(8px);
 }
 
+/* 🚀 OPTIMIZACIÓN SVG SPRITES: Aplicar color a los SVG */
+.social-icon svg {
+    /* El color de .social-icon ahora se aplica al relleno del SVG */
+    fill: rgba(255, 255, 255, 0.8);
+    width: 20px; /* Asegura el tamaño definido en el HTML si es necesario */
+    height: 20px;
+    transition: fill 0.2s ease;
+}
+
 .social-icon:hover {
     background: rgba(0, 255, 255, 0.15);
     border-color: rgba(0, 255, 255, 0.3);
-    color: #ffffff;
     transform: translateY(-1px) scale(1.05);
 }
+
+.social-icon:hover svg {
+    fill: #ffffff; /* Cambia el color del SVG al pasar el ratón */
+}
+/* FIN DE LA OPTIMIZACIÓN DE SOCIAL ICONS */
 
 /* Main Content */
 .main-content {
@@ -1180,18 +1192,30 @@ body::before {
     background: rgba(0, 255, 255, 0.08);
     border: 1px solid rgba(0, 255, 255, 0.15);
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: all 0.2s ease;
     backdrop-filter: blur(8px);
 }
 
+/* 🚀 OPTIMIZACIÓN SVG SPRITES: Aplicar color a los SVG en el footer */
+.footer-social-icon svg {
+    /* El color de .footer-social-icon ahora se aplica al relleno del SVG */
+    fill: rgba(255, 255, 255, 0.7);
+    width: 20px; /* Asegura el tamaño definido en el HTML si es necesario */
+    height: 20px;
+    transition: fill 0.2s ease;
+}
+
 .footer-social-icon:hover {
     background: rgba(0, 255, 255, 0.15);
     border-color: rgba(0, 255, 255, 0.3);
-    color: #ffffff;
     transform: translateY(-1px) scale(1.05);
 }
+
+.footer-social-icon:hover svg {
+    fill: #ffffff; /* Cambia el color del SVG al pasar el ratón */
+}
+/* FIN DE LA OPTIMIZACIÓN DE FOOTER SOCIAL ICONS */
 
 .footer-copyright p {
     color: rgba(255, 255, 255, 0.6);
