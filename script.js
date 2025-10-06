@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isRadioPlaying = true;
             document.getElementById('radio-play-icon').classList.add('hidden');
             document.getElementById('radio-pause-icon').classList.remove('hidden');
-            radioStatus.textContent = 'Play';
+            radioStatus.textContent = 'Reproduciendo en vivo';
             radioInfo.textContent = 'Radio Power - Música en vivo 24/7';
             radioStream.removeEventListener('canplay', onCanPlay);
         };
