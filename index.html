@@ -41,13 +41,13 @@
 <header class="bg-black bg-opacity-50 backdrop-blur-md fixed w-full z-50">
     <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
-            <img src="assets/logo.png" alt="Logo Pop Rock" class="w-24 h-12" width="96" height="48">
+            <img src="assets/logo.png" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48">
             <span class="text-xl sm:text-2xl font-bold neon-text">Pop Rock</span>
         </div>
         <div class="hidden md:flex space-x-6 lg:space-x-8">
             <a href="#home" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Inicio</a>
+            <a href="#gallery" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Contenido</a>
             <a href="#music" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">DJs</a>
-            <a href="#gallery" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Eventos</a>
             <a href="player.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Player</a>
             <a href="video.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Video</a>
         </div>
@@ -62,8 +62,8 @@
 	<div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-30 backdrop-blur-md">
         <div class="px-4 py-2 space-y-2">
             <a href="#home" class="block py-2 hover:text-cyan-400 transition-colors">Inicio</a>
+            <a href="#gallery" class="block py-2 hover:text-cyan-400 transition-colors">Contenido</a>
             <a href="#music" class="block py-2 hover:text-cyan-400 transition-colors">DJs</a>
-            <a href="#gallery" class="block py-2 hover:text-cyan-400 transition-colors">Eventos</a>
             <a href="player.html" class="block py-2 hover:text-cyan-400 transition-colors">Player</a>
             <a href="video.html" class="block py-2 hover:text-cyan-400 transition-colors">Video</a>
         </div>
@@ -98,27 +98,11 @@
     <div id="slider-dots" class="flex justify-center mt-4 space-x-2"></div>
 </div>
 
-<!-- agregar seccion top 5 de videos, estilo barra cada uno, lado izquierdo la imagen del video, centro tutulo y subtitulo lado derecho boton player, video modal, integralo al menú y a google sheet, como top5, genera por aparte el css y js -->
 
-
-
-<!-- Nuestros DJs -->
-<section id="music" class="py-8 sm:py-10">
-    <div class="container mx-auto px-4 sm:px-6">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Nuestros DJs</h2>
-        <div id="djs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Placeholders mientras cargan los DJs -->
-            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
-            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
-            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
-        </div>
-    </div>
-</section>
-
-<!-- Sección de Galería -->
-<section id="gallery" class="py-16">
+<!-- Sección de Contenido -->
+<section id="gallery" class="py-10">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Galería de eventos</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Contenido</h2>
         <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <!-- Placeholders mientras carga la galería -->
             <div class="gallery-placeholder aspect-square rounded-2xl"></div>
@@ -143,7 +127,18 @@
     </div>
 </div>
 
-
+<!-- Nuestros DJs -->
+<section id="music" class="py-8 sm:py-10">
+    <div class="container mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 neon-text">Nuestros DJs</h2>
+        <div id="djs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Placeholders mientras cargan los DJs -->
+            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
+            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
+            <div class="djs-placeholder rounded-lg p-6 h-64"></div>
+        </div>
+    </div>
+</section>
 
 <!-- Radio Directories Section -->
 <section id="radio-directories" class="py-8 sm:py-10">
