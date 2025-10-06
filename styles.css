@@ -11,7 +11,7 @@ body {
 }
 
 .neon-text {
-    color: #00ff00;
+    color: #bcff00;
     /* text-shadow eliminado */
 }
 
@@ -145,7 +145,7 @@ body {
 #modal h3 {
     margin-top: 8px;
     margin-bottom: 4px;
-    color: #00ff00; /* Cambiado a #00ff00 */
+    color: #bcff00; /* Cambiado a #00ff00 */
 }
 
 #modal p {
@@ -154,11 +154,11 @@ body {
 
 #modal button {
     margin-top: 0;
-    background-color: #00aa00; /* Cambiado a verde más oscuro */
+    background-color: #06b6d4; /* Cambiado a verde más oscuro */
 }
 
 #modal button:hover {
-    background-color: #00cc00; /* Cambiado a verde */
+    background-color: #FF3858; /* Cambiado a verde */
 }
 
 /* Placeholders para evitar layout shift */
