@@ -15,20 +15,20 @@
     <link rel="manifest" href="assets/icons/site.webmanifest">
 </head>
 <body class="min-h-screen text-white">
-    <!-- Header -->
-    <header class="bg-black bg-opacity-50 backdrop-blur-md fixed w-full z-50">
-        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="assets/logo.png" alt="Logo Radio Power" class="w-16 h-8">
-                <span class="text-xl sm:text-2xl font-bold neon-text">Radio Power</span>
-            </div>
-            <div class="hidden md:flex space-x-6 lg:space-x-8">
-                <a href="index.html#home" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Inicio</a>
-                <a href="index.html#music" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">DJs</a>
-                <a href="index.html#gallery" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Galería</a>
-                <a href="player.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Player</a>
-                <a href="video.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Video</a>
-            </div>
+   <!-- Header + Menú -->
+<header class="bg-black bg-opacity-50 backdrop-blur-md fixed w-full z-50">
+    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="assets/logo.png" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48">
+            <span class="text-xl sm:text-2xl font-bold neon-text">Pop Rock</span>
+        </div>
+        <div class="hidden md:flex space-x-6 lg:space-x-8">
+			<a href="index.html#home" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Inicio</a>
+			<a href="index.html#gallery" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Contenido</a>
+			<a href="index.html#music" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">DJs</a>
+			<a href="player.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Player</a>
+			<a href="video.html" class="hover:text-cyan-400 transition-colors text-sm lg:text-base">Video</a>
+		</div>
             <!-- Mobile menu button -->
             <button id="mobile-menu-btn" class="md:hidden text-white p-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,11 +39,11 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-30 backdrop-blur-md">
             <div class="px-4 py-2 space-y-2">
-                <a href="index.html#home" class="block py-2 hover:text-cyan-400 transition-colors">Inicio</a>
-                <a href="index.html#music" class="block py-2 hover:text-cyan-400 transition-colors">DJs</a>
-                <a href="index.html#gallery" class="block py-2 hover:text-cyan-400 transition-colors">Galería</a>
-                <a href="player.html" class="block py-2 hover:text-cyan-400 transition-colors">Player</a>
-                <a href="video.html" class="block py-2 hover:text-cyan-400 transition-colors">Video</a>
+            <a href="#home" class="block py-2 hover:text-cyan-400 transition-colors">Inicio</a>
+            <a href="#gallery" class="block py-2 hover:text-cyan-400 transition-colors">Contenido</a>
+            <a href="#music" class="block py-2 hover:text-cyan-400 transition-colors">DJs</a>
+            <a href="player.html" class="block py-2 hover:text-cyan-400 transition-colors">Player</a>
+            <a href="video.html" class="block py-2 hover:text-cyan-400 transition-colors">Video</a>
             </div>
         </div>
     </header>
@@ -65,6 +65,44 @@
     ></iframe>
   </div>
 </main>
+
+
+<!-- Radio Directories Section -->
+<section id="radio-directories" class="py-8 sm:py-10">
+    <div class="container mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-8 sm:mb-12 neon-text">Escúchanos aquí</h2>
+        <div class="icon-container">
+            <div class="icon-row">
+                <a class="icon" href="https://mytuner-radio.com/radio/radio-power-colombia-499975/" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/QCpxD3m3/zAoZTQJ.png" alt="MyTuner" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://onlineradiobox.com/co/power/?cs=co.power&played=1" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/Tw53kmWh/CYYfq5I.png" alt="RadioBox" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://co.radio.net/s/radiopowerco" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/d0x0mn3z/U7WLbpt.png" alt="RadioNet" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://www.emisorascolombianas.co/radio-power" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/0jg2hQpn/BvJlMxK.png" alt="Emisoras Colombianas" loading="lazy" width="64" height="64" />
+                </a>
+            </div>
+            <div class="icon-row">
+                <a class="icon" href="https://tunein.com/radio/Radio-Power-s329905/" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/Nf65q1CH/KLSVKQ9.png" alt="TuneIn" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://radios.com.co/power/" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/Hk3njTgW/kFGlaei.png" alt="Radios.com.co" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://www.claromusica.com/radios/CO/DC/fusagasuga" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/KYzzMCGP/Dfwu5Gl.png" alt="Claro Música" loading="lazy" width="64" height="64" />
+                </a>
+                <a class="icon" href="https://thenonstopradio.com/radio/radio-power" target="_blank" rel="noopener">
+                    <img src="https://i.postimg.cc/NjQLg5ZP/sl25VFe.png" alt="Non Stop Radio" loading="lazy" width="64" height="64" />
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="text-center bg-transparent">
