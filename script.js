@@ -82,7 +82,7 @@ async function renderSlider() {
       <img src="${row[2]}" alt="${row[0]}" loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none';">
       <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 md:p-8 lg:p-12">
         <div class="max-w-2xl">
-          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style="color: #EAFF00">${row[0]}</h1>
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style="color: #c1ff00">${row[0]}</h1>
           <p class="text-lg sm:text-xl md:text-2xl text-white">${row[1]}</p>
         </div>
       </div>
