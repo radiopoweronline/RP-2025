@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Power - Pop Rock</title>
     
+	<!-- Metadatos SEO esenciales -->
+    <meta name="description" content="Radio Power: Música pop rock en vivo 24/7 en radiopower1.netlify.app">
+    <meta property="og:title" content="Radio Power - Pop Rock">
+    <meta property="og:description" content="Música pop rock en vivo 24/7 en radiopower1.netlify.app">
+    <meta property="og:image" content="https://radiopower1.netlify.app/assets/logo.webp">
+    <meta property="og:url" content="https://radiopower1.netlify.app">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://radiopower1.netlify.app">
+	
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="https://cdn.tailwindcss.com/" as="script">
     <link rel="preload" href="styles.css" as="style">
@@ -37,8 +46,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-chrome-192x192.png">
     <link rel="manifest" href="./assets/icons/site.webmanifest">
-</head>
-<body class="min-h-screen text-white">
+	</head>
+	<body class="min-h-screen text-white">
 
     <!-- Header/Menu -->
     <header class="fixed w-full z-50 top-0">
@@ -46,9 +55,9 @@
         <div class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
           <div class="flex items-center space-x-3">
            <div class="w-30 h-10 rounded-xl flex items-center justify-center">
-           <img src="assets/logo.png" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48" loading="eager" fetchpriority="high">
+           <img src="assets/logo.webp" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48" loading="eager" fetchpriority="high">
            </div>
-            <span class="text-xl sm:text-2xl font-bold" style="color: #EAFF00">Pop Rock</span>
+            <span class="text-xl sm:text-2xl font-bold" style="color: #c1ff00">Pop Rock</span>
           </div>
           <div class="hidden lg:flex space-x-3">
             <a href="#slider" class="px-4 py-2 rounded-xl text-white hover:text-cyan-300 hover:bg-cyan-400/10 transition">Slider</a>
@@ -68,9 +77,9 @@
             <div class="flex justify-between items-center p-6 border-b border-cyan-400/30">
               <div class="flex items-center space-x-3">
                 <div class="w-30 h-10 rounded-lg flex items-center justify-center">
-                <img src="assets/logo.png" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48" loading="eager">
+                <img src="assets/logo.webp" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48" loading="eager">
                 </div>
-                <span class="text-xl font-bold" style="color: #EAFF00">Pop Rock</span>
+                <span class="text-xl font-bold" style="color: #c1ff00">Pop Rock</span>
               </div>
               <button id="closeMobileMenu" class="w-10 h-10 bg-red-500/20 border border-red-400/50 rounded-xl flex items-center justify-center hover:bg-red-500/30 transition-colors">
                 <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +129,7 @@
     <!-- Top 5 Videos Section -->
     <section id="top5" class="py-10">
       <div class="container mx-auto px-4 sm:px-6">
-        <h2 class="text-3xl font-bold text-center mb-10" style="color: #EAFF00">TOP 5 VIDEOS</h2>
+        <h2 class="text-3xl font-bold text-center mb-10" style="color: #c1ff00">TOP 5 VIDEOS</h2>
         <div id="top5Videos" class="max-w-4xl mx-auto space-y-4"></div>
       </div>
     </section>
@@ -128,7 +137,7 @@
     <!-- DJs Section -->
     <section id="djs" class="py-10">
       <div class="container mx-auto px-4 sm:px-6">
-        <h2 class="text-3xl font-bold text-center mb-10" style="color: #EAFF00">NUESTROS DJS</h2>
+        <h2 class="text-3xl font-bold text-center mb-10" style="color: #c1ff00">NUESTROS DJS</h2>
         <div id="djsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
       </div>
     </section>
@@ -179,9 +188,9 @@
       <!-- Copyright -->
       <p class="text-gray-400 text-sm m-0 text-center">
         © <span id="year"></span> Radio Power. Todos los derechos reservados.
-      </p>
+      </p> </div>video bg-black rounded-2xl"></div>
     </div>
-  </div>
+ 
 </section>
 
 <script>
@@ -194,11 +203,9 @@
             <div class="flex items-center justify-between gap-4">
                 <!-- Song Info -->
                 <div class="flex items-center gap-4 min-w-0 flex-1">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-cyan-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-                        </svg>
-                    </div>
+                    <div class="w-30 h-15 sm:w-20 sm:h-14 bg-transparent rounded-xl flex items-center justify-center flex-shrink-0">
+					<img src="assets/logo.webp" alt="Logo Radio Power" class="w-24 h-12" width="96" height="48" loading="eager">
+					</div>
                     <div class="min-w-0 flex-1">
                         <div class="text-white font-bold text-sm sm:text-base truncate" id="currentTrack">
                             Radio Power
@@ -275,19 +282,6 @@
     </div>
 
     <script src="script.js" defer></script>
-</body>
-</html>video bg-black rounded-2xl"></div>
-      </div>
-    </div>
 
-    <script src="script.js" defer></script>
 </body>
-</html>xl"></div>
-      </div>
-    </div>
-
-    <script src="script.js" defer></script>
-</body>
-</html>/html>ml>ml>>
-</body>
-</html>/html>
+</html>
