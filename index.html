@@ -283,5 +283,28 @@
 
     <script src="script.js" defer></script>
 
+
+<!-- Protección sencilla de imágenes -->
+<style>
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none; /* evita clics sobre la imagen */
+  }
+</style>
+
+<script>
+  // Bloquear menú contextual (clic derecho)
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+</script>
+
+
+		
 </body>
 </html>
