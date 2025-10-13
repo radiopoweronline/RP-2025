@@ -6,15 +6,15 @@
     <title>Radio Power - Pop Rock</title>
     
 	<!-- Metadatos SEO esenciales -->
-    <meta name="description" content="Radio Power: Música pop rock en vivo 24/7 en radiopower.netlify.app">
+    <meta name="description" content="Radio Power: MÃºsica pop rock en vivo 24/7 en radiopower.netlify.app">
     <meta property="og:title" content="Radio Power - Pop Rock">
-    <meta property="og:description" content="Música pop rock en vivo 24/7 en radiopower.netlify.app">
+    <meta property="og:description" content="MÃºsica pop rock en vivo 24/7 en radiopower.netlify.app">
     <meta property="og:image" content="https://radiopower.netlify.app/assets/logo.webp">
     <meta property="og:url" content="https://radiopower.netlify.app">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://radiopower.netlify.app">
 	
-    <!-- Preload de recursos críticos -->
+    <!-- Preload de recursos crÃ­ticos -->
     <link rel="preload" href="https://cdn.tailwindcss.com/" as="script">
     <link rel="preload" href="styles.css" as="style">
     
@@ -26,7 +26,7 @@
     <script src="https://cdn.tailwindcss.com/" defer></script>
     <link rel="stylesheet" href="styles.css">
     
-    <!-- CSS crítico inline para renderizado inmediato -->
+    <!-- CSS crÃ­tico inline para renderizado inmediato -->
     <style>
     /* Solo lo que se ve "above the fold" */
     .hidden { display: none; }
@@ -61,7 +61,7 @@
           </div>
           <div class="hidden lg:flex space-x-3">
             <a href="#slider" class="px-4 py-2 rounded-xl text-white hover:text-cyan-300 hover:bg-cyan-400/10 transition">Slider</a>
-            <a href="#gallery" class="px-4 py-2 rounded-xl text-white hover:text-yellow-300 hover:bg-yellow-400/10 transition">Galería</a>
+            <a href="#gallery" class="px-4 py-2 rounded-xl text-white hover:text-yellow-300 hover:bg-yellow-400/10 transition">GalerÃ­a</a>
             <a href="#top5" class="px-4 py-2 rounded-xl text-white hover:text-purple-300 hover:bg-purple-400/10 transition">Top 5 Videos</a>
             <a href="#djs" class="px-4 py-2 rounded-xl text-white hover:text-green-300 hover:bg-green-400/10 transition">DJs</a>
           </div>
@@ -92,7 +92,7 @@
                 <div class="font-semibold text-lg">Slider</div>
               </a>
               <a href="#gallery" class="mobile-nav-link block p-4 rounded-2xl text-white bg-yellow-400/10 hover:bg-yellow-400/20 transition-colors duration-200">
-                <div class="font-semibold text-lg">Galería</div>
+                <div class="font-semibold text-lg">GalerÃ­a</div>
               </a>
               <a href="#top5" class="mobile-nav-link block p-4 rounded-2xl text-white bg-purple-400/10 hover:bg-purple-400/20 transition-colors duration-200">
                 <div class="font-semibold text-lg">Top 5 Videos</div>
@@ -102,7 +102,7 @@
               </a>
             </div>
             <div class="p-6 border-t border-cyan-400/30 text-center text-gray-400 text-sm">
-              Radio Power © 2025
+              Radio Power Â© 2025
             </div>
           </div>
         </div>
@@ -164,11 +164,11 @@
         padding:6px 12px;border-radius:4px;cursor:pointer;font-weight:bold;">Enviar</button>
     </div>
 
-    <!-- BotÃ³n de admin oculto -->
+    <!-- BotÃÂ³n de admin oculto -->
     <div id="admin-controls" style="display:none; text-align:center; margin-top:10px;">
       <button id="clear-all"
         style="background:#ff4444;color:#fff;border:none;padding:6px 12px;
-        border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">ðŸ§¹ Limpiar todo el chat</button>
+        border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">Ã°Å¸Â§Â¹ Limpiar todo el chat</button>
     </div>
   </div>
 </section>
@@ -177,7 +177,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
   import { getDatabase, ref, push, onChildAdded, remove, get, onValue } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
 
-  // âœ… TUS DATOS DE FIREBASE - COMPLETOS Y CORRECTOS
+  // Ã¢Åâ¦ TUS DATOS DE FIREBASE - COMPLETOS Y CORRECTOS
   const firebaseConfig = {
     apiKey: "AIzaSyCT-kdqNgKRyFnQnW7XlgDuRGXbi7oVeZA",
     authDomain: "chat-ca936.firebaseapp.com",
@@ -199,12 +199,12 @@
   const clearAllBtn = document.getElementById("clear-all");
   const adminControls = document.getElementById("admin-controls");
 
-  // ðŸš« Lista de malas palabras
+  // Ã°Å¸Å¡Â« Lista de malas palabras
   const malasPalabras = [
-    "pendejo","pendeja","cabron","cabrÃ³n","mierda","malparido","malparida","gonorrea",
+    "pendejo","pendeja","cabron","cabrÃÂ³n","mierda","malparido","malparida","gonorrea",
     "chinga","chingar","chingada","puta","puto","put@","culiao","culera","culero",
-    "hpta","hp","verga","coÃ±o","carajo","marica","pirobo","guevon","gÃ¼evon","guevÃ³n",
-    "boludo","pelotudo","idiota","imbecil","imbÃ©cil","tonto","bobo","estupido","estÃºpido"
+    "hpta","hp","verga","coÃÂ±o","carajo","marica","pirobo","guevon","gÃÂ¼evon","guevÃÂ³n",
+    "boludo","pelotudo","idiota","imbecil","imbÃÂ©cil","tonto","bobo","estupido","estÃÂºpido"
   ];
 
   function limpiarTexto(texto) {
@@ -241,7 +241,7 @@
     const currentUser = nombreInput.value.trim();
     if (currentUser === "LopDor") {
       const del = document.createElement("button");
-      del.textContent = "ðŸ—‘";
+      del.textContent = "Ã°Å¸ââ";
       del.style.marginLeft = "8px";
       del.style.background = "transparent";
       del.style.border = "none";
@@ -255,7 +255,7 @@
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // âœ… CARGAR MENSAJES EXISTENTES al iniciar
+  // Ã¢Åâ¦ CARGAR MENSAJES EXISTENTES al iniciar
   function cargarMensajesExistentes() {
     onValue(mensajesRef, (snapshot) => {
       const mensajes = snapshot.val();
@@ -269,7 +269,7 @@
     });
   }
 
-  // Cargar mensajes cuando la pÃ¡gina se carga
+  // Cargar mensajes cuando la pÃÂ¡gina se carga
   document.addEventListener('DOMContentLoaded', cargarMensajesExistentes);
 
   enviarBtn.onclick = () => {
@@ -302,14 +302,14 @@
   });
 
   clearAllBtn.onclick = async () => {
-    if (confirm("Â¿Seguro que deseas borrar TODO el chat?")) {
+    if (confirm("ÃÂ¿Seguro que deseas borrar TODO el chat?")) {
       const snapshot = await get(mensajesRef);
       snapshot.forEach(child => remove(ref(db, "mensajes/" + child.key)));
       chatBox.innerHTML = "";
     }
   };
 
-  // âœ… ESCUCHAR NUEVOS MENSAJES de otros usuarios
+  // Ã¢Åâ¦ ESCUCHAR NUEVOS MENSAJES de otros usuarios
   onChildAdded(mensajesRef, (data) => {
     const msg = data.val();
     
@@ -338,7 +338,7 @@
     <div class="flex flex-col items-center py-3">
 
 
-  <!-- �conos -->
+  <!-- Íconos -->
 <div class="flex justify-center gap-6 mb-2">
   <!-- YouTube -->
   <a href="https://www.youtube.com/@radio.power" target="_blank" rel="noopener" aria-label="YouTube" title="Visita nuestro canal de YouTube"
@@ -364,8 +364,8 @@
     </svg>
   </a>
 
-  <!-- Bot�n Compartir -->
-  <button onclick="toggleShareOptions()" aria-label="Compartir opciones" title="M�s opciones para compartir"
+  <!-- Botón Compartir -->
+  <button onclick="toggleShareOptions()" aria-label="Compartir opciones" title="Más opciones para compartir"
      class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-purple-500 cursor-pointer">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="#8B5CF6">
       <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
@@ -373,10 +373,10 @@
   </button>
 </div>
 
-<!-- Men� de opciones de compartir (oculto por defecto) -->
+<!-- Menú de opciones de compartir (oculto por defecto) -->
 <div id="shareOptions" class="hidden flex justify-center gap-6 mt-4">
   <!-- WhatsApp -->
-  <a href="https://api.whatsapp.com/send?text=�Escucha%20Radio%20Power!%20%20https://radiopower.netlify.app/" 
+  <a href="https://api.whatsapp.com/send?text=¡Escucha%20Radio%20Power!%20%20https://radiopower.netlify.app/" 
      target="_blank" rel="noopener" aria-label="Compartir en WhatsApp" title="Comparte en WhatsApp"
      class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-green-500">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="#25D366">
@@ -385,7 +385,7 @@
   </a>
 
   <!-- Telegram -->
-  <a href="https://t.me/share/url?url=https://radiopower.netlify.app/&text=�Escucha%20Radio%20Power!%20" 
+  <a href="https://t.me/share/url?url=https://radiopower.netlify.app/&text=¡Escucha%20Radio%20Power!%20" 
      target="_blank" rel="noopener" aria-label="Compartir en Telegram" title="Comparte en Telegram"
      class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-blue-400">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="#0088cc">
@@ -394,7 +394,7 @@
   </a>
 
   <!-- Twitter -->
-  <a href="https://twitter.com/intent/tweet?text=�Escucha%20Radio%20Power!%20%20https://radiopower.netlify.app/" 
+  <a href="https://twitter.com/intent/tweet?text=¡Escucha%20Radio%20Power!%20%20https://radiopower.netlify.app/" 
      target="_blank" rel="noopener" aria-label="Compartir en Twitter" title="Comparte en Twitter"
      class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-blue-400">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="#1DA1F2">
@@ -437,7 +437,7 @@ function copyToClipboard() {
 
       <!-- Copyright -->
       <p class="text-gray-400 text-sm m-0 text-center">
-        © <span id="year"></span> Radio Power. Todos los derechos reservados.
+        Â© <span id="year"></span> Radio Power. Todos los derechos reservados.
       </p> </div>video bg-black rounded-2xl"></div>
     </div>
  
@@ -499,7 +499,7 @@ function copyToClipboard() {
         </div>
     </div>
 
-    <!-- Modal para galería -->
+    <!-- Modal para galerÃ­a -->
     <div id="imageModal" class="modal-backdrop">
       <div class="modal-content">
         <button id="closeModal" class="modal-close text-white hover:text-cyan-400">
@@ -534,7 +534,7 @@ function copyToClipboard() {
     <script src="script.js" defer></script>
 
 
-<!-- Protección sencilla de imágenes -->
+<!-- ProtecciÃ³n sencilla de imÃ¡genes -->
 <style>
   img {
     -webkit-user-drag: none;
@@ -546,7 +546,7 @@ function copyToClipboard() {
 </style>
 
 <script>
-  // Bloquear menú contextual (clic derecho)
+  // Bloquear menÃº contextual (clic derecho)
   document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName === 'IMG') {
       e.preventDefault();
