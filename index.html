@@ -146,7 +146,7 @@
       </div>
     </section>
     
- <!-- CHAT SIMPLE (admin oculto con hora) -->
+<!-- CHAT SIMPLE (admin oculto con hora) -->
 <section id="chat" style="max-width:420px;margin:15px auto;font-family:Arial, sans-serif;">
   <div style="background:#000;border:1px solid #2b2b2b;border-radius:8px;padding:10px;">
     <h4 style="text-align:center;color:#00ff66;margin:0 0 8px;">💬 Chat</h4>
@@ -172,7 +172,7 @@
     <div id="admin-controls" style="display:none; text-align:center; margin-top:10px;">
       <button id="clear-all"
         style="background:#ff4444;color:#fff;border:none;padding:6px 12px;
-        border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">🧹 Limpiar todo el chat</button>
+        border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">🗑️ Limpiar todo el chat</button>
     </div>
   </div>
 </section>
@@ -181,7 +181,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
   import { getDatabase, ref, push, onChildAdded, remove, get, onValue } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
 
-  // ✅ TUS DATOS DE FIREBASE - COMPLETOS Y CORRECTOS
+  // 🔥 TUS DATOS DE FIREBASE - COMPLETOS Y CORRECTOS
   const firebaseConfig = {
     apiKey: "AIzaSyCT-kdqNgKRyFnQnW7XlgDuRGXbi7oVeZA",
     authDomain: "chat-ca936.firebaseapp.com",
@@ -203,7 +203,7 @@
   const clearAllBtn = document.getElementById("clear-all");
   const adminControls = document.getElementById("admin-controls");
 
-  // 🚫 Lista de malas palabras
+  // 📜 Lista de malas palabras
   const malasPalabras = [
     "pendejo","pendeja","cabron","cabrón","mierda","malparido","malparida","gonorrea",
     "chinga","chingar","chingada","puta","puto","put@","culiao","culera","culero",
@@ -222,11 +222,39 @@
 
   function formatearHora(timestamp) {
     const fecha = new Date(timestamp);
+    const ahora = new Date();
+    const diffMs = ahora - fecha; // Diferencia en milisegundos
+    const diffMinutos = Math.floor(diffMs / (1000 * 60)); // Diferencia en minutos
+    const diffHoras = Math.floor(diffMs / (1000 * 60 * 60)); // Diferencia en horas
+    const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24)); // Diferencia en días
+
+    // Formato de la hora (solo usado si es necesario)
     let horas = fecha.getHours();
     const minutos = fecha.getMinutes().toString().padStart(2, "0");
     const ampm = horas >= 12 ? "PM" : "AM";
     horas = horas % 12 || 12;
-    return `${horas}:${minutos} ${ampm}`;
+
+    // Formato de la fecha (solo usado para mensajes muy antiguos)
+    const dia = fecha.getDate().toString().padStart(2, "0");
+    const mes = (fecha.getMonth() + 1).toString().padStart(2, "0");
+    const anio = fecha.getFullYear();
+
+    // Lógica para mostrar tiempos relativos
+    if (diffMinutos < 60) {
+      return `hace ${diffMinutos} minutos`; // Ej: "hace 20 minutos"
+    } else if (diffHoras < 24) {
+      return `hace ${diffHoras} ${diffHoras === 1 ? "hora" : "horas"}`; // Ej: "hace 1 hora", "hace 17 horas"
+    } else if (diffDias === 1) {
+      return `hace un día`; // Ej: "hace un día"
+    } else if (diffDias <= 6) {
+      return `hace ${diffDias} días`; // Ej: "hace 2 días"
+    } else if (diffDias <= 13) {
+      return `hace una semana`; // Ej: "hace una semana"
+    } else if (diffDias <= 44) {
+      return `hace un mes`; // Ej: "hace un mes"
+    } else {
+      return `hace ${diffDias} días`; // Ej: "hace 45 días"
+    }
   }
 
   function agregarMensajeALaVista(msg, key = null) {
@@ -259,7 +287,7 @@
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // ✅ CARGAR MENSAJES EXISTENTES al iniciar
+  // 📥 CARGAR MENSAJES EXISTENTES al iniciar
   function cargarMensajesExistentes() {
     onValue(mensajesRef, (snapshot) => {
       const mensajes = snapshot.val();
@@ -313,7 +341,7 @@
     }
   };
 
-  // ✅ ESCUCHAR NUEVOS MENSAJES de otros usuarios
+  // 📩 ESCUCHAR NUEVOS MENSAJES de otros usuarios
   onChildAdded(mensajesRef, (data) => {
     const msg = data.val();
     
@@ -334,7 +362,6 @@
     }
   });
 </script>
-
 
   <!-- Redes Sociales + Copyright -->
 <section id="social-media" class="m-0 mb-10 p-0">
