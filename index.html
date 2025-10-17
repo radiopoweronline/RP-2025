@@ -618,12 +618,34 @@ function copyToClipboard() {
 	<!-- Protección de imagenes-->
 <script>
 document.querySelectorAll('img').forEach(function(img) {
+    // Bloquear clic derecho
     img.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     });
+
+    // Deshabilitar arrastre
     img.setAttribute('draggable', 'false');
+
+    // Bloquear eventos táctiles (mantener presionado)
+    img.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+    });
 });
 </script>
+
+<style>
+img {
+    /* Evitar selección de imágenes */
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    
+    /* Deshabilitar acciones táctiles */
+    -webkit-touch-callout: none; /* iOS Safari */
+    pointer-events: none; /* Deshabilitar interacciones */
+}
+</style>
 	
 </body>
 </html>
