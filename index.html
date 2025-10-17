@@ -614,5 +614,16 @@ function copyToClipboard() {
         </div>
     </div>
 </div>
+
+	<!-- Protección de imagenes-->
+<script>
+document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+    img.setAttribute('draggable', 'false');
+});
+</script>
+	
 </body>
 </html>
