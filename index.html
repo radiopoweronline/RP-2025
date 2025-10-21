@@ -146,36 +146,86 @@
       </div>
     </section>
     
-<!-- CHAT SIMPLE (admin oculto con hora) -->
-<section id="chat" style="max-width:420px;margin:15px auto;font-family:Arial, sans-serif;">
-  <div style="background:#000;border:1px solid #2b2b2b;border-radius:8px;padding:10px;">
-    <h4 style="text-align:center;color:#00ff66;margin:0 0 8px;">💬 Chat</h4>
+<!-- BOTÓN SVG CON ETIQUETA "CHAT" -->
+<div id="chat-toggle" style="
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  border: 1px solid #00ff66;
+  border-radius: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.2s ease;
+">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 16.1 22 15V4C22 2.9 21.1 2 20 2Z" 
+          fill="#00ff66" stroke="#00ff66" stroke-width="1"/>
+  </svg>
+  <span style="color: #00ff66; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold;">chat</span>
+</div>
 
-    <div id="chat-box"
-      style="background:#0d0d0d;border:1px solid #333;border-radius:6px;
-      color:#bfffc7;height:220px;overflow-y:auto;padding:8px;font-size:14px;line-height:1.4;">
+<!-- MODAL -->
+<div id="chat-modal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 10000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+">
+  <!-- CONTENEDOR MODAL -->
+  <div style="width: 100%; max-width: 420px; max-height: 90vh; display: flex; flex-direction: column;">
+    <!-- HEADER CERRAR -->
+    <div style="height: 30px; background: #000; border-radius: 8px 8px 0 0; display: flex; justify-content: flex-end; padding: 5px;">
+      <button id="close-modal" style="background: none; border: none; color: #888; font-size: 20px; cursor: pointer; width: 20px; height: 20px;">×</button>
     </div>
+    
+    <!-- TU CHAT EXACTO -->
+    <div style="flex: 1; overflow: hidden; border-radius: 0 0 8px 8px; background: #000; border: 1px solid #2b2b2b; border-top: none;">
+      <!-- CHAT SIMPLE -->
+      <section id="chat" style="max-width:420px;margin:15px auto;font-family:Arial, sans-serif;">
+        <div style="background:#000;border:1px solid #2b2b2b;border-radius:8px;padding:10px;">
+          <h4 style="text-align:center;color:#00ff66;margin:0 0 8px;">💬 Chat</h4>
 
-    <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap;">
-      <input id="nombre" type="text" placeholder="Nombre"
-        style="flex:1;min-width:80px;padding:6px;border-radius:4px;
-        border:1px solid #333;background:#111;color:#fff;font-size:13px;">
-      <input id="mensaje" type="text" placeholder="Mensaje..."
-        style="flex:2;min-width:120px;padding:6px;border-radius:4px;
-        border:1px solid #333;background:#111;color:#fff;font-size:13px;">
-      <button id="enviar"
-        style="background:#00ff66;color:#000;border:none;
-        padding:6px 12px;border-radius:4px;cursor:pointer;font-weight:bold;">Enviar</button>
-    </div>
+          <div id="chat-box"
+            style="background:#0d0d0d;border:1px solid #333;border-radius:6px;
+            color:#bfffc7;height:220px;overflow-y:auto;padding:8px;font-size:14px;line-height:1.4;">
+          </div>
 
-    <!-- Botón de admin oculto -->
-    <div id="admin-controls" style="display:none; text-align:center; margin-top:10px;">
-      <button id="clear-all"
-        style="background:#ff4444;color:#fff;border:none;padding:6px 12px;
-        border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">🗑️ Limpiar todo el chat</button>
+          <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap;">
+            <input id="nombre" type="text" placeholder="Nombre"
+              style="flex:1;min-width:80px;padding:6px;border-radius:4px;
+              border:1px solid #333;background:#111;color:#fff;font-size:13px;">
+            <input id="mensaje" type="text" placeholder="Mensaje..."
+              style="flex:2;min-width:120px;padding:6px;border-radius:4px;
+              border:1px solid #333;background:#111;color:#fff;font-size:13px;">
+            <button id="enviar"
+              style="background:#00ff66;color:#000;border:none;
+              padding:6px 12px;border-radius:4px;cursor:pointer;font-weight:bold;">Enviar</button>
+          </div>
+
+          <!-- Botón de admin oculto -->
+          <div id="admin-controls" style="display:none; text-align:center; margin-top:10px;">
+            <button id="clear-all"
+              style="background:#ff4444;color:#fff;border:none;padding:6px 12px;
+              border-radius:4px;cursor:pointer;font-size:13px;font-weight:bold;">🗑️ Limpiar todo el chat</button>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</section>
+</div>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
@@ -203,6 +253,11 @@
   const clearAllBtn = document.getElementById("clear-all");
   const adminControls = document.getElementById("admin-controls");
 
+  // 🎯 ELEMENTOS MODAL
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatModal = document.getElementById("chat-modal");
+  const closeModal = document.getElementById("close-modal");
+
   // 📜 Lista de malas palabras
   const malasPalabras = [
     "pendejo","pendeja","cabron","cabrón","mierda","malparido","malparida","gonorrea",
@@ -223,37 +278,25 @@
   function formatearHora(timestamp) {
     const fecha = new Date(timestamp);
     const ahora = new Date();
-    const diffMs = ahora - fecha; // Diferencia en milisegundos
-    const diffMinutos = Math.floor(diffMs / (1000 * 60)); // Diferencia en minutos
-    const diffHoras = Math.floor(diffMs / (1000 * 60 * 60)); // Diferencia en horas
-    const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24)); // Diferencia en días
+    const diffMs = ahora - fecha;
+    const diffMinutos = Math.floor(diffMs / (1000 * 60));
+    const diffHoras = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-    // Formato de la hora (solo usado si es necesario)
-    let horas = fecha.getHours();
-    const minutos = fecha.getMinutes().toString().padStart(2, "0");
-    const ampm = horas >= 12 ? "PM" : "AM";
-    horas = horas % 12 || 12;
-
-    // Formato de la fecha (solo usado para mensajes muy antiguos)
-    const dia = fecha.getDate().toString().padStart(2, "0");
-    const mes = (fecha.getMonth() + 1).toString().padStart(2, "0");
-    const anio = fecha.getFullYear();
-
-    // Lógica para mostrar tiempos relativos
     if (diffMinutos < 60) {
-      return `hace ${diffMinutos} minutos`; // Ej: "hace 20 minutos"
+      return `hace ${diffMinutos} minutos`;
     } else if (diffHoras < 24) {
-      return `hace ${diffHoras} ${diffHoras === 1 ? "hora" : "horas"}`; // Ej: "hace 1 hora", "hace 17 horas"
+      return `hace ${diffHoras} ${diffHoras === 1 ? "hora" : "horas"}`;
     } else if (diffDias === 1) {
-      return `hace un día`; // Ej: "hace un día"
+      return `hace un día`;
     } else if (diffDias <= 6) {
-      return `hace ${diffDias} días`; // Ej: "hace 2 días"
+      return `hace ${diffDias} días`;
     } else if (diffDias <= 13) {
-      return `hace una semana`; // Ej: "hace una semana"
+      return `hace una semana`;
     } else if (diffDias <= 44) {
-      return `hace un mes`; // Ej: "hace un mes"
+      return `hace un mes`;
     } else {
-      return `hace ${diffDias} días`; // Ej: "hace 45 días"
+      return `hace ${diffDias} días`;
     }
   }
 
@@ -287,7 +330,7 @@
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // 📥 CARGAR MENSAJES EXISTENTES al iniciar
+  // 📥 CARGAR MENSAJES EXISTENTES
   function cargarMensajesExistentes() {
     onValue(mensajesRef, (snapshot) => {
       const mensajes = snapshot.val();
@@ -301,8 +344,34 @@
     });
   }
 
+  // === FUNCIONES MODAL ===
+  function abrirChat() {
+    chatModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    cargarMensajesExistentes();
+  }
+
+  function cerrarChat() {
+    chatModal.style.display = "none";
+    document.body.style.overflow = "";
+  }
+
   // Cargar mensajes cuando la página se carga
-  document.addEventListener('DOMContentLoaded', cargarMensajesExistentes);
+  document.addEventListener('DOMContentLoaded', () => {
+    cargarMensajesExistentes();
+  });
+
+  // EVENTOS MODAL
+  chatToggle.onclick = abrirChat;
+  closeModal.onclick = cerrarChat;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatModal.style.display === 'flex') cerrarChat();
+  });
+
+  chatModal.addEventListener('click', (e) => {
+    if (e.target === chatModal) cerrarChat();
+  });
 
   enviarBtn.onclick = () => {
     const nombre = nombreInput.value.trim();
@@ -313,7 +382,6 @@
 
     const textoLimpio = limpiarTexto(mensaje);
     
-    // Agregar mensaje localmente inmediatamente
     const mensajeLocal = {
       name: nombre,
       text: textoLimpio,
@@ -321,12 +389,10 @@
     };
     agregarMensajeALaVista(mensajeLocal);
     
-    // Luego enviar a Firebase
     push(mensajesRef, mensajeLocal);
     mensajeInput.value = "";
   };
 
-  // Permitir enviar con Enter
   mensajeInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       enviarBtn.click();
@@ -341,28 +407,28 @@
     }
   };
 
-  // 📩 ESCUCHAR NUEVOS MENSAJES de otros usuarios
+  // 📩 ESCUCHAR NUEVOS MENSAJES
   onChildAdded(mensajesRef, (data) => {
-    const msg = data.val();
-    
-    // Verificar si el mensaje ya fue mostrado localmente
-    const mensajesExistentes = chatBox.children;
-    let yaExiste = false;
-    
-    for (let i = 0; i < mensajesExistentes.length; i++) {
-      const elemento = mensajesExistentes[i];
-      if (elemento.textContent.includes(msg.text) && elemento.textContent.includes(msg.name)) {
-        yaExiste = true;
-        break;
+    if (chatModal.style.display === 'flex') {
+      const msg = data.val();
+      
+      const mensajesExistentes = chatBox.children;
+      let yaExiste = false;
+      
+      for (let i = 0; i < mensajesExistentes.length; i++) {
+        const elemento = mensajesExistentes[i];
+        if (elemento.textContent.includes(msg.text) && elemento.textContent.includes(msg.name)) {
+          yaExiste = true;
+          break;
+        }
       }
-    }
-    
-    if (!yaExiste) {
-      agregarMensajeALaVista(msg, data.key);
+      
+      if (!yaExiste) {
+        agregarMensajeALaVista(msg, data.key);
+      }
     }
   });
 </script>
-
 
 <!-- Radio Directories Section -->
 <section id="radio-directories" class="py-8 sm:py-10">
